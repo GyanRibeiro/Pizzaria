@@ -72,20 +72,24 @@ c('.pizzaInfo--qtmais').addEventListener('click', ()=> {
 
 c('.pizzaInfo--addButton').addEventListener('click', () =>{
     let size = Number(c('.pizzaInfo--size.selected').getAttribute('data-key'));
-    
-    if (modalQTD > 0) {
+
+    let identificador = pizzaJson[modalKey].id+'@'+size;
+
+    let keyItem = cart.findIndex((item) => {
+        return item.identificador === identificador
+    })
+
+    if (keyItem > -1) {
+        cart[keyItem].quantidade += modalQTD;
+    } else {
         cart.push({
-            id:pizzaJson[modalKey],
+            identificador,
+            id:pizzaJson[modalKey].id,
             size,
-            quantidade: modalQTD
-
+            quantidade: modalQTD,
         })
-        fecharModal()
-
-        setTimeout(() =>{
-            alert('Pizza adicionada ao carrinho')
-        }, 500)
-    }
+     }
+     fecharModal()
 })
 
 cs('.pizzaInfo--size').forEach((size) =>{
