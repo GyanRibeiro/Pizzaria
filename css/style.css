@@ -43,7 +43,7 @@ header {
 }
 
 aside {
-    background-color:#9ccbe6;
+    background-color:#ffffff;
     width:0vw;
     font-family:'Hepta Slab', Helvetica, Arial;
     transition:all ease .2s;
@@ -59,7 +59,7 @@ main {
     flex:1;
     padding:20px;
 }
-h1 {
+main h1 {
     font-family:'Hepta Slab', Helvetica, Arial;
     color: #ffffff;
 }
